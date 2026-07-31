@@ -82,7 +82,40 @@ now we need static routes for health check range
 - the below static route is added in VR-Trust
 <img width="1162" height="692" alt="image" src="https://github.com/user-attachments/assets/8cb7105e-cf8c-4067-9214-854373a17e70" />
 
+Management Profile: gcp-health-check (HTTP allowed, permitted IPs: 35.191.0.0/16, 130.211.0.0/22).
+
 ## Phase 4 : NCC related configurations
+
+Scenario: Allow app1-vm (10.10.10.2) and app2-vm (10.20.20.2) to communicate with onprem-vm (192.168.100.2) via the firewall. 
+
+**Step 8** 
+
+Create a Network Connectivity Center (NCC) Hub in Project 
+Attach the following VPCs as spokes to the Hub:
+app-1-vpc
+app-2-vpc
+trust-vpc
+
+**Step 9**  
+Configure GCP Routing (App to On-Prem)
+
+(a) App VPC Default Route:
+In each of app vpc , configure a static route 0.0.0.0/0 with the next hop pointing to iLB1 (192.168.10.6) in trust-vpc.
+
+(b) On-Prem to VPC Routing:
+In connectivity-vpc, configure static routes for 10.10.10.0/24 and 10.20.20.0/24 pointing to the Connectivity ILB iLB3 (192.168.30.6) as the next hop.
+
+Configure routing in Palo Alto -
+
+- In vr-trust , put following static route
+<img width="861" height="524" alt="image" src="https://github.com/user-attachments/assets/e9b6a1e5-8cd9-4a20-9165-81edd33b2863" />
+
+- In vr-connectivity , put following static route
+  <img width="861" height="524" alt="image" src="https://github.com/user-attachments/assets/7b758223-a751-4f0b-94f7-a3f84218d175" />
+
+  POLICIES in Palo Alto
+  <img width="1889" height="245" alt="image" src="https://github.com/user-attachments/assets/8ebf8596-7ce2-4516-8b6e-26521050afa3" />
+
 
 
 
