@@ -71,7 +71,7 @@ in my example , I have 3 VRs ( trust , untrust , Connectivity ) and 3 sec zones 
 <img width="729" height="173" alt="image" src="https://github.com/user-attachments/assets/2c2894ed-c870-4633-9296-b643b485cc17" />
 <img width="472" height="282" alt="image" src="https://github.com/user-attachments/assets/99842d86-1602-4c93-b3ad-e735207c3b1a" />
 
-**Phase3 : Health Checks**
+## Phase3 : Health Checks
 Because we are using L4 pass through iLB , we need to ensure the health check pass.
 Below steps are for ILB01 in Trust VPC , same steps can be repeated for other ILB as well
 a) ILB address 192.168.10.6 . So we need to create the loopback address on palo Alto with this address and put it in correct VR
@@ -81,6 +81,8 @@ a) ILB address 192.168.10.6 . So we need to create the loopback address on palo 
 now we need static routes for health check range 
 - the below static route is added in VR-Trust
 <img width="1162" height="692" alt="image" src="https://github.com/user-attachments/assets/8cb7105e-cf8c-4067-9214-854373a17e70" />
+
+## Phase 4 : NCC related configurations
 
 
 
