@@ -28,3 +28,44 @@ Check that these 2 CIDR are learnt using BGP and NH is IPSEC tunnels
 
 ## Phase 2: Firewall Deployment & Initial Setup##
 
+**Step 4**
+Deploy a Palo Alto VM-Series firewall instance from GCP Marketplace in Project using the GCP Console GUI.
+License: VM-Series Next-Generation Firewall Bundle 2 (PAYG).
+VM Type: n2-standard-4 (required for 4 network interfaces).
+NIC Mapping (with Management Swap):
+nic0: untrust-vpc (IP: 192.168.20.5) 
+nic1: mgmt-vpc (IP: 192.168.40.5) - Management (Swapped)
+nic2: trust-vpc (IP: 192.168.10.5) 
+nic3: connectivity-vpc (IP: 192.168.30.5) 
+
+**Step5**
+GUI Settings:
+Enable "Swap Management Interface" checkbox.
+Enable "Enable Serial Console Access" checkbox.
+Paste the SSH key from Step 2 (format: admin:ssh-rsa ...).
+Enable "IP Forwarding".
+
+**Step6**
+Initial Password Setup:
+SSH to management IP (e.g. 34.x.x.x public IP ) using private key: ssh -i ~/.ssh/paloalto-key admin@[MGMT_IP]
+Run CLI commands to set password for Web UI access:
+
+configure
+set mgt-config users admin password
+# Enter password (must be >= 8 chars, 1 upper, 1 lower, 1 number/special)
+commit
+exit
+
+**Step7**
+Once you login to Palo Alto 
+  - configure interfaces
+  - configure VRs
+  - configure security zones
+in my example , I have 3 VRs ( trust , untrust , Connectivity ) and 3 sec zones as follows
+<img width="729" height="173" alt="image" src="https://github.com/user-attachments/assets/2c2894ed-c870-4633-9296-b643b485cc17" />
+<img width="472" height="282" alt="image" src="https://github.com/user-attachments/assets/99842d86-1602-4c93-b3ad-e735207c3b1a" />
+
+
+
+
+
