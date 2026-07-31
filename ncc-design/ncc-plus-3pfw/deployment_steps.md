@@ -1,3 +1,5 @@
+*Phase 1* BASE setup
+
 **Step 1**: Create VPCs and Subnets
 Create the VPC networks and subnets across the 4 projects in asia-south1 region. 
 
@@ -23,3 +25,5 @@ Configure Cloud VPN in connectivity-vpc to connect to onprem-vpc (192.168.100.0/
 Ensure routes are established in connectivity-vpc to reach On-Premises.
 from connectivity VPC --> ensure that you are advertising custom routes 10.10.10.0/24 and 10.20.20.0/24 towards on prem over the IPSEC tunnels
 Check that these 2 CIDR are learnt using BGP and NH is IPSEC tunnels
+
+*Phase 2*: Firewall Deployment & Initial Setup
