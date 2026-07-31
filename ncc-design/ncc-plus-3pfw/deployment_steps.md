@@ -105,6 +105,9 @@ In each of app vpc , configure a static route 0.0.0.0/0 with the next hop pointi
 (b) On-Prem to VPC Routing:
 In connectivity-vpc, configure static routes for 10.10.10.0/24 and 10.20.20.0/24 pointing to the Connectivity ILB iLB3 (192.168.30.6) as the next hop.
 
+A sample from app-1 vpc looks like below 
+<img width="1723" height="712" alt="image" src="https://github.com/user-attachments/assets/97b7048f-c901-47a5-a88b-d90d58951968" />
+
 Configure routing in Palo Alto -
 
 - In vr-trust , put following static route
