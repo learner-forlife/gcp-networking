@@ -61,7 +61,13 @@ Once you login to Palo Alto
   - configure interfaces
   - configure VRs
   - configure security zones
+
 in my example , I have 3 VRs ( trust , untrust , Connectivity ) and 3 sec zones as follows
+
+<img width="868" height="220" alt="image" src="https://github.com/user-attachments/assets/d4718970-7253-4068-ba3b-a636960fe346" />
+<img width="868" height="220" alt="image" src="https://github.com/user-attachments/assets/f612812c-605f-4fff-a8e3-77f2608dbe0e" />
+
+
 <img width="729" height="173" alt="image" src="https://github.com/user-attachments/assets/2c2894ed-c870-4633-9296-b643b485cc17" />
 <img width="472" height="282" alt="image" src="https://github.com/user-attachments/assets/99842d86-1602-4c93-b3ad-e735207c3b1a" />
 
