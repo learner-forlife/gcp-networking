@@ -52,7 +52,7 @@ Run CLI commands to set password for Web UI access:
 
 configure
 set mgt-config users admin password
-# Enter password (must be >= 8 chars, 1 upper, 1 lower, 1 number/special)
+Enter password (must be >= 8 chars, 1 upper, 1 lower, 1 number/special)
 commit
 exit
 
