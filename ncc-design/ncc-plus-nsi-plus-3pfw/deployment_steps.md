@@ -41,6 +41,7 @@ gcloud beta network-security intercept-deployments create palo-nsi-deployment-a 
 After this step , you should see following -->
 <img width="1293" height="507" alt="image" src="https://github.com/user-attachments/assets/943f6873-1c7d-4908-8260-7159b9969e20" />
 <img width="1293" height="867" alt="image" src="https://github.com/user-attachments/assets/17560ebf-07f6-4561-a976-613aa6ca593c" />
+
 ---
 # Consumer specific configuration
 ### Step 4 : prepare Palo Alto firewall
@@ -48,13 +49,12 @@ Enable GENEVE Inspection on VM-Series Firewall
 To allow the firewall to process GENEVE encapsulated traffic steered by GCP, you must enable GENEVE inspection via the CLI and reboot:
 
 SSH into the VM-Series firewall.
-Run the following command to enable inspection:
-
+Run the following command to enable inspection
 ```bash
 request plugins vm_series gcp ips inspect enable yes
 ```
+ Reboot the firewall 
 
-Reboot the firewall 
 ---
 
 ### Step 5 : Configure App Project 1 (same steps need to be repeated for app2 project also)
@@ -83,6 +83,7 @@ gcloud network-security security-profiles custom-intercept create app1-nsi-profi
     --intercept-endpoint-group=projects/ncc-nsi-app-project/locations/global/interceptEndpointGroups/app1-nsi-endpoint-group \
     --project=ncc-nsi-app-project
 ```
+
 Create Security Profile Group: Bundles the profile.
 ```bash
 gcloud network-security security-profile-groups create app1-nsi-spg \
@@ -94,12 +95,16 @@ gcloud network-security security-profile-groups create app1-nsi-spg \
 Some snapshots from GUI -
 ### intercept endpoint group
 <img width="1427" height="445" alt="image" src="https://github.com/user-attachments/assets/95cf76ff-880c-488f-90db-b7cf969d7c44" />
+
 ### association with app VPC
 <img width="1760" height="717" alt="image" src="https://github.com/user-attachments/assets/2782b762-2af6-4836-95fd-923c023c63a5" />
+
 ### Security profile
 <img width="1760" height="504" alt="image" src="https://github.com/user-attachments/assets/7d80ef7d-f31e-4813-992e-76ca96caf500" />
+
 ### Security profile group
 <img width="1760" height="588" alt="image" src="https://github.com/user-attachments/assets/97e924de-6496-4eac-a906-1ab77239292b" />
+
 ---
 
 
