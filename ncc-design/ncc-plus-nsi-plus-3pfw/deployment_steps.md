@@ -17,6 +17,10 @@ Create a second Internal Load Balancer in trust-vpc for NSI
 ---
 
 ### Step 2 : Create Intercept Deployment Group
+Rough visualization of how various config blocks are arranged 
+<img width="1514" height="416" alt="image" src="https://github.com/user-attachments/assets/624ac94d-6d5f-436b-9f1f-7129c7fb8f78" />
+
+
 Create a global Intercept Deployment Group to act as a container for your firewall deployments:
 You can do this via GUI or gcloud commands
 ```bash
@@ -126,7 +130,7 @@ This step can be easily done in GUI as follows
 ### Step 7 :  Verification 
 - Successful ping from 10.20.20.2 to 10.10.10.2
 - see traffic hitting Palo Alto
-- Check metrics explorer of application projects and look out for inspected packets
+- Check metrics explorer of application projects and look out for intercepted packets
 
 ---
 
