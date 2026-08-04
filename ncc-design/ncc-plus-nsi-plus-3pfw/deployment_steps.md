@@ -45,10 +45,11 @@ After this step , you should see following -->
 ---
 # Consumer specific configuration
 ### Step 4 : prepare Palo Alto firewall
-(a) Create a loopback interface with Ip as 192.168.10.8 in Trust VR
-(b) ensure health check of udp-ilb02 is passing successfully
-(c) The traffic from app VPCs will come and go in trust interface , so have a policy [ src = trust-zone , dst = trust-zone ]
-(d)Enable GENEVE Inspection on VM-Series Firewall
+- Create a loopback interface with Ip as 192.168.10.8 in Trust VR
+- ensure the health check of udp-ilb02 is passing successfully
+- The traffic from app VPCs will come and go in the trust interface , so have a policy [ src = trust-zone , dst = trust-zone ]
+- Enable GENEVE Inspection on VM-Series Firewall
+
 To allow the firewall to process GENEVE encapsulated traffic steered by GCP, you must enable GENEVE inspection via the CLI and reboot:
 
 SSH into the VM-Series firewall.
