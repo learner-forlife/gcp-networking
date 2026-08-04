@@ -47,6 +47,8 @@ After this step , you should see following -->
 ### Step 4 : prepare Palo Alto firewall
 - Create a loopback interface with Ip as 192.168.10.8 in Trust VR
 - ensure the health check of udp-ilb02 is passing successfully
+  <img width="1159" height="385" alt="image" src="https://github.com/user-attachments/assets/3fc8126a-d914-47b4-a8ed-1494c203dc65" />
+
 - The traffic from app VPCs will come and go in the trust interface , so have a policy [ src = trust-zone , dst = trust-zone ]
 - Enable GENEVE Inspection on VM-Series Firewall
 
@@ -119,8 +121,14 @@ This step can be easily done in GUI as follows
 - Ingress : traffic from 10.10.10.0/24 to 10.20.20.0/24 should be  inspected at palo
 
   <img width="1548" height="183" alt="image" src="https://github.com/user-attachments/assets/32f354c9-bc46-4b7c-9b51-a974462b43dc" />
-  
+---
 
+### Step 7 :  Verification 
+- Successful ping from 10.20.20.2 to 10.10.10.2
+- see traffic hitting Palo Alto
+- Check metrics explorer of application projects and look out for inspected packets
+
+---
 
 
 
