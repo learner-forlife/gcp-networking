@@ -14,7 +14,8 @@
 
 # Why this design needs NSI 
 - When we connect 2 VPCs using NCC , their respective subnet routes are auto programmed . Hence , any communication between workloads in these 2 VPC will directly happen and firewall will not come in play
-- Example : routing table of app-2 VPC looks like following
+- Example : routing table of app-2 VPC looks like the following
+- If you see , it has progammed 10.10.10.0/24 ( app1-vpc subnet CIDR) with priority 0
   <img width="1746" height="725" alt="image" src="https://github.com/user-attachments/assets/533629aa-7e89-4799-80b8-eaaab7d56c9e" />
 
   
