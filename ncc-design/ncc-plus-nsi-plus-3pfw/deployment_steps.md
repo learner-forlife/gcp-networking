@@ -3,17 +3,18 @@ From a GCP configuration perspective , lets break the config in 2 steps
 - Producer specific config
 - Consumer specific config
 To make things easy for understanding , "producer" in our case is Palo VM exposed behind an internal UDP pass through load balancer . "Consumer" in our case will be VMs sitting in app-1-vpc and app-2-vpc
-
+---
 # Producer specific configuraton
-**Step 1** :  Configure NSI Load Balancer (iLB2)
+### Step 1 :  Configure NSI Load Balancer (iLB2)
 Create a second Internal Load Balancer in trust-vpc for NSI 
-Load Balancer Type: Internal Passthrough Network Load Balancer (L4).
-Protocol: UDP (GENEVE encapsulation uses UDP port 6081).
-Global Access: Disabled (must be disabled for NSI).
-Frontend VIP: 192.168.10.8 (example)
-Backend: Firewall nic2 IP (in trust Vpc).
-Health Check: TCP port 80 
-
+**Configuration Details:**
+* **Type:** Internal Passthrough Network Load Balancer (L4)
+* **Protocol:** UDP (GENEVE encapsulation uses UDP port `6081`)
+* **Global Access:** Disabled *(must be disabled for NSI)*
+* **Frontend VIP:** `192.168.10.8` (example)
+* **Backend:** Firewall `nic2` IP (in `trust-vpc`)
+* **Health Check:** TCP port `80`
+---
 **Step 2** : Create Intercept Deployment Group
 Create a global Intercept Deployment Group to act as a container for your firewall deployments:
 You can do this via GUI or gcloud commands
