@@ -24,6 +24,7 @@ gcloud beta network-security intercept-deployment-groups create palo-nsi-deploym
     --location=global \
     --network=projects/ncc-nsi-nw-project/global/networks/trust-vpc \
     --project=ncc-nsi-nw-project
+```
 ---
 ### Step 3 : Create Zonal Intercept Deployment
 Create a zonal deployment in the firewall's zone, pointing it to the forwarding rule of iLB2 (assume forwarding rule is named ilb2-forwarding-rule):
@@ -35,7 +36,7 @@ gcloud beta network-security intercept-deployments create palo-nsi-deployment-a 
     --intercept-deployment-group=palo-nsi-deployment-group \
     --forwarding-rule-location=asia-south1 \
     --project=ncc-nsi-nw-project
-`
+```
 
 After this step , you should see following -->
 <img width="1293" height="507" alt="image" src="https://github.com/user-attachments/assets/943f6873-1c7d-4908-8260-7159b9969e20" />
