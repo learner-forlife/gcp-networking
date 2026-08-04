@@ -45,7 +45,10 @@ After this step , you should see following -->
 ---
 # Consumer specific configuration
 ### Step 4 : prepare Palo Alto firewall
-Enable GENEVE Inspection on VM-Series Firewall
+(a) Create a loopback interface with Ip as 192.168.10.8 in Trust VR
+(b) ensure health check of udp-ilb02 is passing successfully
+(c) The traffic from app VPCs will come and go in trust interface , so have a policy [ src = trust-zone , dst = trust-zone ]
+(d)Enable GENEVE Inspection on VM-Series Firewall
 To allow the firewall to process GENEVE encapsulated traffic steered by GCP, you must enable GENEVE inspection via the CLI and reboot:
 
 SSH into the VM-Series firewall.
@@ -106,6 +109,16 @@ Some snapshots from GUI -
 <img width="1760" height="588" alt="image" src="https://github.com/user-attachments/assets/97e924de-6496-4eac-a906-1ab77239292b" />
 
 ---
+
+### Step 6 :  GCP Cloud NGFW firewall policy rules
+
+This step can be easily done in GUI as follows 
+- on app-2-vpc , you need to write rules as follows
+- Egress : traffic from 10.20.20.0/24 to 10.10.10.0/24 should be inspected at Palo
+- Ingress : traffic from 10.10.10.0/24 to 10.20.20.0/24 should be  inspected at palo
+
+  <img width="1548" height="183" alt="image" src="https://github.com/user-attachments/assets/32f354c9-bc46-4b7c-9b51-a974462b43dc" />
+  
 
 
 
